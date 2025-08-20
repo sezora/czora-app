@@ -25,8 +25,7 @@ router.replace('/auth?redirect=/employer');
     const upsertEmployer = async () => {
       const user = session.user;
       const { data: existing, error: selErr } = await supabase
-        .from('employers').select('id, company_name, 
-contact_email').eq('user_id', user.id).maybeSingle();
+        .from('employers').select('id, company_name, contact_email').eq('user_id', user.id).maybeSingle();
       if (selErr) { alert(selErr.message); return; }
       if (existing) {
         setEmployerId(existing.id);
