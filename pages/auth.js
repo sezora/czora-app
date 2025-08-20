@@ -76,8 +76,7 @@ password });
 
   const createJob = async (e) => {
     e.preventDefault();
-    if (!form.name || !form.location || !form.pay) return alert('All 
-fields required');
+    if (!form.name || !form.location || !form.pay) return alert('All fields required');
     const { error } = await supabase.from('jobs').insert({
       employer_id: employerId,
       name: form.name,
