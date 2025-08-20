@@ -35,8 +35,7 @@ router.replace('/auth?redirect=/employer');
         const draft = { user_id: user.id, company_name: 'My Company', 
 contact_email: user.email };
         const { data: inserted, error: insErr } = await 
-supabase.from('employers').insert(draft).select('id, company_name, 
-contact_email').single();
+supabase.from('employers').insert(draft).select('id, company_name, contact_email').single();
         if (insErr) { alert(insErr.message); return; }
         setEmployerId(inserted.id);
         setCompanyName(inserted.company_name);
